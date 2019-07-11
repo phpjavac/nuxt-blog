@@ -120,7 +120,7 @@ $mb = 120px
     top 0
     left 0
     right 0
-    background-image url('/sites/upload/cover-3.jpg')
+    background-image url('/sites/upload/cover-2.jpg')
     background-repeat no-repeat
     background-size cover
     background-position center center
