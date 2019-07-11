@@ -1,7 +1,7 @@
 <template lang='pug'>
 v-app
   // Header
-  the-header(:didScroll="true")
+  the-header(:didScroll="false")
   v-content
     nuxt
 </template>
