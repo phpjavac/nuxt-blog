@@ -57,7 +57,7 @@ export default {
           text: "首页"
         },
         {
-          path: "tags",
+          path: "/tags",
           icon: "fas fa-tags",
           text: "文章标签"
         },
