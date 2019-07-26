@@ -38,11 +38,19 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
+ proxy: [
+  ['/api', { target: 'http://localhost:3003' }]
+],
+ Plugins:[
+  '~plugins/axios',
+  '~plugins/vuetify'
+ ],
   /*
   ** Nuxt.js modules
   */
   modules: [
     '@nuxtjs/vuetify',
+    '@nuxtjs/proxy'
   ],
   /*
   ** vuetify module configuration

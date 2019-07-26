@@ -16,7 +16,7 @@
       // Tags
       v-flex(class="tag-card-content" warp)
         v-badge(
-          v-for="(tag, index) in tags"
+          v-for="(tag, index) in tagsList"
           :key="index"
           color="accent lighten-1"
         )
@@ -33,10 +33,15 @@
       //- the-bar(:data="tags")
 </template>
 <script>
+import axios from 'axios'
 export default {
+    async asyncData () {
+    let { data } = await axios.get("http://localhost:3003/api/article/taglist")
+    return { tagsList: data.list }
+  },
   data() {
     return {
-      tags: []
+      tagsList: []
     };
   }
 };
