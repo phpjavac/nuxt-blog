@@ -1,7 +1,7 @@
 {
   "name": "nuxt-blog",
   "version": "1.0.0",
-  "description": "My magnificent Nuxt.js project",
+  "description": "My bee&#39;s knees Nuxt.js project",
   "author": "绎紫洛英",
   "private": true,
   "scripts": {
@@ -11,21 +11,16 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "aos": "^2.3.4",
-    "axios": "^0.19.0",
+    "@nuxtjs/vuetify": "0.5.5",
     "cross-env": "^5.2.0",
-    "envalid": "^5.0.0",
+    "dayjs": "^1.8.15",
     "express": "^4.16.4",
-    "lru-cache": "^5.1.1",
-    "mongoose": "^5.6.3",
-    "nuxt": "^2.0.0",
-    "vuetify": "^1.5.16",
-    "vuetify-loader": "^1.2.2"
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.9",
     "pug": "^2.0.4",
-    "pug-plain-loader": "^1.0.0",
+    "pug-plain-loader": "^2.4.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2"
   }

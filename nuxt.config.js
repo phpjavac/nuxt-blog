@@ -1,3 +1,4 @@
+const colors = require('vuetify/es5/util/colors').default
 
 module.exports = {
   mode: 'universal',
@@ -5,6 +6,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
+    titleTemplate: '%s - ' + process.env.npm_package_name,
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
@@ -12,11 +14,12 @@ module.exports = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ,
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,400,500,700&amp;subset=chinese-simplified,japanese',
+          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
       },
       {
         rel: 'stylesheet',
@@ -31,20 +34,27 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: [
-  ],
+ css: ['~assets/style/stylus/app'],
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-    { src: '~plugins/aos', ssr: false },
-    '~plugins/vuetify',
-  ],
   /*
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/vuetify',
   ],
+  /*
+  ** vuetify module configuration
+  ** https://github.com/nuxt-community/vuetify-module
+  */
+  vuetify: {
+    theme: {
+      primary: '#3D4451',
+      secondary: '#D7D7D7',
+      accent: '#E8676B',
+    }
+  },
   /*
   ** Build configuration
   */
@@ -62,6 +72,5 @@ module.exports = {
     },
     extend(config, ctx) {
     }
-
   }
 }
