@@ -77,11 +77,13 @@ export default {
 <style scoped lang="stylus" rel="stylesheet/stylus">
 .nav-transparent
   .v-toolbar__items >>> .v-btn
-    color var(--v-secondary-base)
+    color #d7d7d7
   .toolbar-item-link >>> .v-btn__content::after
-    background-color var(--v-secondary-base) !important
+    background-color #d7d7d7 !important
+
 .nav-sticky .v-toolbar__items >>> .v-btn
   color var(--v-primary-base)
+
 .toolbar-item-link
   >>> .v-btn__content::after
     content ''
@@ -91,7 +93,7 @@ export default {
     width 100%
     height 3px
     border-radius 1.5px
-    background-color var(--v-accent-base)
+    background-color #e8676b
     transform scaleX(0)
     transform-origin center top
     transition transform .3s

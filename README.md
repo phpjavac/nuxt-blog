@@ -1,6 +1,6 @@
 # nuxt-blog
 
-> My magnificent Nuxt.js project
+> My bee&#39;s knees Nuxt.js project
 
 ## Build Setup
 

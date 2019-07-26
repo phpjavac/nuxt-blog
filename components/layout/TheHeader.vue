@@ -12,13 +12,12 @@
       // Brand
       div.header-brand.text-xs-center.secondary-text
         div.brand-name.display-2
-          span.hidden-text M
-          span.hidden-text r
-          span.hidden-text _
-          span H
-          span i
-          span.hidden-text e
-          span.hidden-text i
+          span.hidden-text 绎
+          span.hidden-text 紫
+          span.hidden-text 洛
+          span.hidden-text 英
+          span.present-text H
+          span.present-text I
           span.present-text !
 
         div.brand-motto.subheading
@@ -53,24 +52,24 @@ export default {
     return {
       pages: [
         {
-          path: "index",
+          path: "/",
           icon: "fas fa-home",
           text: "首页"
         },
         {
           path: "tags",
           icon: "fas fa-tags",
-          text: "首页"
+          text: "文章标签"
         },
         {
           path: "archives",
           icon: "fas fa-archive",
-          text: "首页"
+          text: "归档"
         },
         {
           path: "about",
           icon: "fas fa-portrait",
-          text: "首页"
+          text: "关于"
         }
       ]
     };
@@ -94,7 +93,7 @@ $mb = 120px
       padding 15px 0
       background-color transparent
       >>> .v-icon
-        color var(--v-secondary-base)
+        color #d7d7d7
     .nav-sticky
       background-color white
       >>> .v-icon
@@ -121,7 +120,7 @@ $mb = 120px
     top 0
     left 0
     right 0
-    background-image url('/sites/upload/cover-3.jpg')
+    background-image url('/sites/upload/cover-2.jpg')
     background-repeat no-repeat
     background-size cover
     background-position center center
