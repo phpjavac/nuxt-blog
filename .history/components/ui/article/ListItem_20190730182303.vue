@@ -1,0 +1,132 @@
+<template lang="pug">
+  article(data-aos="fade-up")
+    v-card.post
+      // Content
+      v-card-text.post-content
+        // Datetime
+        //- post-date-time(:datetime="article.created_at")
+        // Title
+        v-flex(class="post-content-title" wrap)
+          n-link(
+          :to="articles-id"
+            exact
+          )
+            | {{ article.title }}
+        v-flex(class="post-content-summary" wrap)
+          n-link(
+          :to="articles-id"
+            exact
+          )
+            | {{ article.summary }}
+    
+        // Tags
+        v-flex(class="post-content-tag" wrap)
+          n-link(
+            v-for="(tag, index) in article.tag"
+          :to="articles-id"
+            :key="index"
+          )
+            | \#{{ tag }}
+
+        // Detail
+        v-flex(class="post-content-detail" wrap)
+          // Views
+          span.detail-item
+            v-icon(small)
+              | far fa-eye
+            //- | {{ $t('article.views', { number: article.views }) }}
+
+          // Comments
+          n-link(
+          :to="articles-id"
+            class="detail-item"
+            exact
+          )
+            v-icon(small)
+              | far fa-comments
+            //- | {{ $t('article.comments', { number: commentCount }) }}
+</template>
+<script>
+export default {
+  props: {
+    article: {
+      type: Object
+    }
+  },
+  created(){
+  }
+};
+</script>
+
+<style scoped lang="stylus" rel="stylesheet/stylus">
+
+.post
+  position relative
+  text-align center
+  transition box-shadow 0.15s linear 0s
+  box-shadow 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24)
+  .post-image img
+    height 220px!important
+  &:hover
+    box-shadow 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23)
+    .post-image img
+      opacity 1
+      transform scale3d(1.1, 1.1, 1)
+  // Link
+  a:hover
+    text-decoration underline
+  // Image
+  &-image
+    padding 0
+    overflow hidden
+    justify-content center
+    img
+      width 100%
+      height auto
+      opacity 0.8
+      display block
+      backface-visibility hidden
+      transition opacity 1s, transform 1s
+      position relative
+      &[lazy=loading]
+        width 60px
+        padding 30px 0
+  // Detail
+  &-content
+    padding 25px 25px 35px 25px
+    >>> time
+      position absolute
+      top 20px
+      right 20px
+    // Tag
+    &-tag
+      font-size 11px
+      margin-bottom 26px
+      a
+        margin-right 8px
+        color var(--v-secondary-darken2)
+        &:last-child
+          margin-right 0
+    // Title
+    &-title
+      font-size 20px
+      font-weight 700
+      margin-bottom 25px
+      a
+        transition color 0.15s linear 0s
+        &:hover
+          color var(--v-accent-base)
+          text-decoration none
+    // Detail
+    &-detail
+      font-size 13px
+      .detail-item
+        color var(--v-secondary-darken2)
+        margin-right 20px
+        &:last-child
+          margin-right 0
+        .v-icon
+          display inline-block
+          margin 0 6px 4px 0
+          color var(--v-secondary-darken2)
+</style>
