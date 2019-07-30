@@ -70,7 +70,7 @@
               | fas fa-feather-alt
             | 最新文章
 
-        article-list(:init-data="articles",:init-count="totalCount")
+        article-list(:init-data="articles" :init-count="totalCount")
 </template>
 <script>
 import ArticleList from "@/components/ui/article/List.vue";

@@ -70,7 +70,7 @@
               | fas fa-feather-alt
             | 最新文章
 
-        article-list(:init-data="articles",:init-count="totalCount")
+        article-list(:init-data="articles" :init-count="totalCount")
 </template>
 <script>
 import ArticleList from "@/components/ui/article/List.vue";
@@ -92,7 +92,7 @@ export default {
     let { data } = await axios.get("http://localhost:3003/api/article/list", {
       params: { page: 1, pageSize: 10 }
     });
-    return { articles: data.data.list,totalCount:data };
+    return { articles: data.data.list,totalCount:data.data };
   },
   computed: {
     season() {

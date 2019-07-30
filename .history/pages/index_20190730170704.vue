@@ -70,12 +70,12 @@
               | fas fa-feather-alt
             | 最新文章
 
-        article-list(:init-data="articles",:init-count="totalCount")
+        article-list(:init-data="articles" :init-count="totalCount")
 </template>
 <script>
 import ArticleList from "@/components/ui/article/List.vue";
 import dayjs, { Dayjs } from "dayjs";
-import axios from "axios";
+import axios from 'axios'
 export default {
   components: {
     "article-list": ArticleList
@@ -89,10 +89,8 @@ export default {
     };
   },
   async asyncData() {
-    let { data } = await axios.get("http://localhost:3003/api/article/list", {
-      params: { page: 1, pageSize: 10 }
-    });
-    return { articles: data.data.list,totalCount:data };
+    let { data } = await axios.get("http://localhost:3003/api/article/list/1/10");
+    return { articles: data };
   },
   computed: {
     season() {

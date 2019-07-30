@@ -70,29 +70,21 @@
               | fas fa-feather-alt
             | 最新文章
 
-        article-list(:init-data="articles",:init-count="totalCount")
+        article-list(:init-data="articles" :init-count="totalCount")
 </template>
 <script>
-import ArticleList from "@/components/ui/article/List.vue";
 import dayjs, { Dayjs } from "dayjs";
-import axios from "axios";
 export default {
-  components: {
-    "article-list": ArticleList
+components: {
+    ArticleList: () => import('@/components/ui/article/List.vue'),
   },
   data() {
     return {
-      articles: [],
-      totalCount: {},
+      articles:[],
+      totalCount:{},
       now: dayjs(),
-      date: ["一", "二", "三", "四", "五", "六", "天"]
+      date:["一","二","三","四","五","六","天"]
     };
-  },
-  async asyncData() {
-    let { data } = await axios.get("http://localhost:3003/api/article/list", {
-      params: { page: 1, pageSize: 10 }
-    });
-    return { articles: data.data.list,totalCount:data };
   },
   computed: {
     season() {
@@ -146,11 +138,12 @@ export default {
       font-weight 700
       text-align center
       padding 20px
+
   // Today card
   .today
     &-card
       padding 16px
-      box-shadow 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24)
+      box-shadow 0 1px 6px rgba(0, 0, 0, .12), 0 1px 4px rgba(0, 0, 0, .24)
     &-title
       color #a0a0a0
       &::before, &::after
@@ -158,7 +151,7 @@ export default {
         vertical-align middle
         display inline-block
         width 14%
-        margin 0 4% 4% 4%
+        margin  0 4% 4% 4%
         border 1px solid #a0a0a0
     &-date
       margin-bottom 8px
