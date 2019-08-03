@@ -1,0 +1,31 @@
+{
+  "name": "yiziluoying-blog",
+  "version": "1.0.0",
+  "description": "My bee&#39;s knees Nuxt.js project",
+  "author": "绎紫洛英",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/vuetify": "0.5.5",
+    "axios": "^0.19.0",
+    "cross-env": "^5.2.0",
+    "dayjs": "^1.8.15",
+    "envalid": "^5.0.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.6.5",
+    "nuxt": "^2.0.0",
+    "vue-totop": "^1.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9",
+    "pug": "^2.0.4",
+    "pug-plain-loader": "^1.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+  }
+}
