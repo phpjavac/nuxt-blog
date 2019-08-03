@@ -34,17 +34,18 @@ module.exports = {
   /*
   ** Global CSS
   */
- css: ['~assets/style/stylus/app'],
+  css: ['~assets/style/stylus/app'],
   /*
   ** Plugins to load before mounting the App
   */
- proxy: [
-  ['/api', { target: 'http://localhost:3003' }]
-],
- Plugins:[
-  '~plugins/axios',
-  '~plugins/vuetify'
- ],
+  proxy: [
+    ['/api', { target: 'http://localhost:3003' }]
+  ],
+  plugins: [
+    { src: '~plugins/totop', ssr: true },
+    { src: '~plugins/vuetify', ssr: true }
+
+  ],
   /*
   ** Nuxt.js modules
   */

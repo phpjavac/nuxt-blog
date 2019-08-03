@@ -27,8 +27,13 @@ class Api {
   }
   deleteTag(id){
     return this.$http.delete(`./api/article/deletetag/${id}`);
-    
   }
+  getArticle(){
+    return this.$http.get('./api/article/list',{
+      params: { page: 1, pageSize: 10 }
+    });
+  }
+  
 }
 
 export default Api;

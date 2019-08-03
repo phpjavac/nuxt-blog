@@ -5,11 +5,10 @@
       v-for="(article, index) in articles"
       :key="index"
       class="post-list-item"
-      md6
+      md12
       wrap
     )
         article-list-item(:article="article")
-
     // Actions
     v-flex(
       v-show="isHaveMore"
@@ -54,14 +53,17 @@ export default {
     };
   },
   methods: {
-    fetchNext() {
-        
-    }
+    fetchNext() {}
   },
   created() {
     this.articles = this.initData.map(item => {
-      item.image =
-        "https://static-solo.b3log.org/skins/nijigen/images/background5.jpg";
+      console.log(item)
+      // item.tag = item.tag.map(item1 => {
+      //   return {
+      //     name: item1,
+      //     to: `/tag/${item1}`
+      //   };
+      // });
       return item;
     });
   }
@@ -73,7 +75,7 @@ export default {
   // Item
   &-item
     padding 0 8px
-    margin 6px 0 36px 0
+    // margin 6px 0 36px 0
     +screen-width-less-than(sm)
       padding 0
   // Actions

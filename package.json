@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-blog",
+  "name": "yiziluoying-blog",
   "version": "1.0.0",
   "description": "My bee&#39;s knees Nuxt.js project",
   "author": "绎紫洛英",
@@ -18,7 +18,8 @@
     "envalid": "^5.0.0",
     "express": "^4.16.4",
     "mongoose": "^5.6.5",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "vue-totop": "^1.0.3"
   },
   "devDependencies": {
     "nodemon": "^1.18.9",

@@ -71,6 +71,7 @@
             | 最新文章
 
         article-list(:init-data="articles",:init-count="totalCount")
+        vueToTop(:bottom="50")
 </template>
 <script>
 import ArticleList from "@/components/ui/article/List.vue";
@@ -88,6 +89,11 @@ export default {
       date: ["一", "二", "三", "四", "五", "六", "天"]
     };
   },
+    head () {
+        return {
+            title: "yiziluoying"
+        }
+    },
   async asyncData() {
     let { data } = await axios.get("http://localhost:3003/api/article/list", {
       params: { page: 1, pageSize: 10 }

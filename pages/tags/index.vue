@@ -20,13 +20,17 @@
           :key="index"
           color="accent lighten-1"
         )
-          template(#badge)
+          template
             span {{ tag.value }}
           v-chip(
             class="tag-label elevation-3"
             label
           )
-            | {{ tag.name }}
+            n-link(
+            :to="`tags/${tag.name}`"
+              exact
+            )
+              | {{ tag.name }}
 
     // Chart
     v-card()

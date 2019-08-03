@@ -23,6 +23,9 @@ api.$http.interceptors.response.use((res) => {
 const install = function apiFun(Vue) {
     if (install.installed) return;
     install.installed = true;
+    // if(Vue.prototype.$http){
+    //     return
+    // }
     Object.defineProperties(Vue.prototype, {
         $http: {
             get() {
