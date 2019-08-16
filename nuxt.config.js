@@ -19,6 +19,11 @@ module.exports = {
       {
         rel: 'stylesheet',
         href:
+          'https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.min.css'
+      },
+      {
+        rel: 'stylesheet',
+        href:
           'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
       },
       {
@@ -43,7 +48,9 @@ module.exports = {
   ],
   plugins: [
     { src: '~plugins/totop', ssr: true },
-    { src: '~plugins/vuetify', ssr: true }
+    { src: '~plugins/vuetify', ssr: true },
+    { src: '@/plugins/vue-mavon-editor', srr: false }
+
 
   ],
   /*

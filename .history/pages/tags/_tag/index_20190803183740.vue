@@ -21,7 +21,7 @@ v-layout(wrap).tag-list
               left
             )
               | fas fa-feather-alt
-            | 《{{$route.params.tag}}》的最新文章
+            | 最新文章
         article-list(:init-data="articles",:init-count="totalCount")
     //- // Infinite loading
     //- v-infinite-loading()
@@ -60,17 +60,6 @@ export default {
 
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-.section
-  margin 48px auto 24px auto
-  &-item
-    margin 0 auto 40px auto
-    &:last-child
-      margin-bottom 0
-    &-title
-      font-size 34px
-      font-weight 700
-      text-align center
-      padding 20px
 .tag-list
   text-align center
   margin auto

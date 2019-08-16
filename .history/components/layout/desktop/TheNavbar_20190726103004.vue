@@ -54,28 +54,25 @@
           //-         | {{ locale.name }}
 
       // Search button
-      the-search-button
+      //- the-search-button
 
     v-spacer
 </template>
 <script>
 export default {
-  components: {
-    TheSearchButton: () => import("@/components/ui/TheSearchButton.vue")
-  },
-  props: {
-    didScroll: {
-      type: Boolean,
-      default: false
+  props:{
+    didScroll:{
+      type:Boolean,
+      default:false
     },
-    pages: {
-      type: Array,
-      default: () => {
-        return [];
+    pages:{
+      type:Array,
+      default:()=>{
+        return []
       }
     }
   }
-};
+}
 </script>
 <style scoped lang="stylus" rel="stylesheet/stylus">
 .nav-transparent
@@ -83,8 +80,10 @@ export default {
     color #d7d7d7
   .toolbar-item-link >>> .v-btn__content::after
     background-color #d7d7d7 !important
+
 .nav-sticky .v-toolbar__items >>> .v-btn
   color var(--v-primary-base)
+
 .toolbar-item-link
   >>> .v-btn__content::after
     content ''
@@ -97,7 +96,7 @@ export default {
     background-color #e8676b
     transform scaleX(0)
     transform-origin center top
-    transition transform 0.3s
+    transition transform .3s
   &:hover >>> .v-btn__content::after
     transform scaleX(1)
 </style>

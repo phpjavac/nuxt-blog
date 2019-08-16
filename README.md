@@ -1,22 +1,18 @@
 # nuxt-blog
 
-> My bee&#39;s knees Nuxt.js project
+**说明**
 
-## Build Setup
+又一个nuxt博客,使用nuxt进行服务端渲染,前端使用pug+stylus进行开发.
 
-``` bash
-# install dependencies
-$ yarn install
+施工中..
 
-# serve with hot reload at localhost:3000
-$ yarn dev
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+# 使用
 
-# generate static project
-$ yarn generate
-```
+> git clone https://github.com/phpjavac/nuxt-blog.git
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+> cd blogApi
+
+> yarn
+
+> yarn dev

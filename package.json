@@ -17,8 +17,10 @@
     "dayjs": "^1.8.15",
     "envalid": "^5.0.0",
     "express": "^4.16.4",
+    "mavon-editor": "^2.7.5",
     "mongoose": "^5.6.5",
     "nuxt": "^2.0.0",
+    "vue-quill-editor": "^3.0.6",
     "vue-totop": "^1.0.3"
   },
   "devDependencies": {

@@ -9,13 +9,13 @@
         // Title
         v-flex(class="post-content-title" wrap)
           n-link(
-          to="articles-id"
+          :to="`/articles/${article._id}`"
             exact
           )
             | {{ article.title }}
         v-flex(class="post-content-summary" wrap)
           n-link(
-          to="articles-id"
+          :to="`/articles/${article._id}`"
             exact
           )
             | {{ article.summary }}
