@@ -28,4 +28,6 @@ export default {
 ::-webkit-scrollbar-thumb
   background-color grey
   border-radius 100px
+body
+  background: #d7d7d7;
 </style>
