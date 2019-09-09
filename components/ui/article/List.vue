@@ -17,7 +17,7 @@
       wrap
     )
       button(
-        v-show="!loading"
+        v-show="!loading&&loadingShow"
         class="fetch-button"
         @click="fetchNext"
       )
@@ -25,7 +25,7 @@
           | fas fa-plus
 
       v-icon(
-        v-show="loading"
+        v-show="loading&&loadingShow"
         class="fetch-icon"
         color="accent"
         size="48"
@@ -36,9 +36,18 @@
 <script>
 import articleListItem from "./ListItem.vue";
 export default {
+  watch: {
+    initData() {
+      this.updata()
+    }
+  },
   props: {
     initData: {
       type: Array
+    },
+    loadingShow:{
+      type:Boolean,
+      default:true
     }
     // totalCount:Object
   },
@@ -53,49 +62,69 @@ export default {
     };
   },
   methods: {
-    fetchNext() {}
+    updata() {
+      this.articles = this.initData.map(item => {
+        console.log(item);
+        // item.tag = item.tag.map(item1 => {
+        //   return {
+        //     name: item1,
+        //     to: `/tag/${item1}`
+        //   };
+        // });
+        return item;
+      });
+    },
+    fetchNext(){
+
+    }
   },
   created() {
-    this.articles = this.initData.map(item => {
-      console.log(item)
-      // item.tag = item.tag.map(item1 => {
-      //   return {
-      //     name: item1,
-      //     to: `/tag/${item1}`
-      //   };
-      // });
-      return item;
-    });
+    this.updata()
   }
 };
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-.post-list
+.post-list {
   // Item
-  &-item
-    padding 0 8px
+  &-item {
+    padding: 0 8px;
+
     // margin 6px 0 36px 0
-    +screen-width-less-than(sm)
-      padding 0
+    +screen-width-less-than(sm) {
+      padding: 0;
+    }
+  }
+
   // Actions
-  &-action
+  &-action {
     // Button
-    .fetch-button
-      margin 12px 0
-      width 97px
-      height 60px
-      border 1px solid var(--v-secondary-darken1)
-      outline none
-      background transparent
-      transition box-shadow 0.3s
-      .v-icon::before
-        transition transform 0.3s
-      &:hover
-        box-shadow 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15)
-        .v-icon::before
-          transform rotate(90deg)
+    .fetch-button {
+      margin: 12px 0;
+      width: 97px;
+      height: 60px;
+      border: 1px solid var(--v-secondary-darken1);
+      outline: none;
+      background: transparent;
+      transition: box-shadow 0.3s;
+
+      .v-icon::before {
+        transition: transform 0.3s;
+      }
+
+      &:hover {
+        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+
+        .v-icon::before {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
     // Icon
-    .fetch-icon
-      margin 18px 24px
+    .fetch-icon {
+      margin: 18px 24px;
+    }
+  }
+}
 </style>

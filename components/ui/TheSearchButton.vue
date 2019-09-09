@@ -10,7 +10,7 @@
 export default {
   methods: {
     openSearchDialog(){
-      
+      this.$store.commit("showSearchDialogState");
     }
   },
 }

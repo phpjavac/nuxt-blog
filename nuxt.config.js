@@ -19,7 +19,7 @@ module.exports = {
       {
         rel: 'stylesheet',
         href:
-          'https://cdn.bootcss.com/github-markdown-css/2.10.0/github-markdown.min.css'
+          'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.css'
       },
       {
         rel: 'stylesheet',

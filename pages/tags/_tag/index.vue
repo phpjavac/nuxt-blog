@@ -27,13 +27,11 @@ v-layout(wrap).tag-list
     //- v-infinite-loading()
 </template>
 <script>
-import articleListItem from "@/components/ui/article/ListItem.vue";
 import ArticleList from "@/components/ui/article/List.vue";
 
 import axios from "axios";
 export default {
   components: {
-    "article-list-item": articleListItem,
     "article-list": ArticleList
   },
   data() {

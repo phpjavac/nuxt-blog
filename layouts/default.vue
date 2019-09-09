@@ -2,6 +2,7 @@
 v-app
   // Header
   the-header(:didScroll="false")
+  TheSearchDialog
   v-content
     nuxt
     // Footer
