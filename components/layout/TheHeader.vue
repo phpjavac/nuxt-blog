@@ -62,12 +62,12 @@ export default {
           text: "文章标签"
         },
         {
-          path: "archives",
+          path: "/archives",
           icon: "fas fa-archive",
           text: "归档"
         },
         {
-          path: "about",
+          path: "/about",
           icon: "fas fa-portrait",
           text: "关于"
         }

@@ -9,7 +9,7 @@ v-flex(
     v-card.archives-card
       // Title
       v-flex(class="archives-card-title" wrap)  敬业日历
-      the-calendar
+      the-calendar(:list="list")
 </template>
 
 <script>
@@ -24,15 +24,8 @@ export default {
     };
   },
   async asyncData() {
-    const { data } = await axios.get("http://localhost:3003/api/tool/workingday", {
-      params: {
-        Startdate: "2019-01-01",
-        enddate: "2019-12-31",
-        code: "sunfucong",
-        state: "Resolved, Closed"
-      }
-    });
-    return { list: data };
+    const { data } = await axios.get("http://localhost:3003/api/tool/getworkingHours");
+    return { list: data.data };
   }
 };
 </script>
