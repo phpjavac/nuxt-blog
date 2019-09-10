@@ -1,6 +1,12 @@
 <template lang="pug">
 figure
     div(ref="echarts").charts
+    div(v-if="state>5")
+      ul.Statistics-list
+        template(v-for="(item) of headers")
+          div.list
+            li  {{item.text}}
+            li  {{desserts[item.value]}}
 </template>
 <script>
 // 引入 echarts 主模块。
@@ -10,23 +16,31 @@ export default {
   props: {
     list: {
       type: Object
+    },
+    state: {
+      type: Number
     }
   },
+  data() {
+    return {
+      headers: [
+        { text: "一月", value: "January" },
+        { text: "二月", value: "February" },
+        { text: "三月", value: "March" },
+        { text: "四月", value: "April" },
+        { text: "五月", value: "May" },
+        { text: "六月", value: "June" },
+        { text: "七月", value: "July" },
+        { text: "八月", value: "August" },
+        { text: "九月", value: "September" },
+        { text: "十月", value: "October" },
+        { text: "十一月", value: "November" },
+        { text: "十二月", value: "December" }
+      ],
+      desserts: {}
+    };
+  },
   methods: {
-    getVirtulData1(year) {
-      year = year || "2019";
-      var date = +echarts.number.parseDate(year + "-01-01");
-      var end = +echarts.number.parseDate(year + "-12-31");
-      var dayTime = 3600 * 24 * 1000;
-      var data = [];
-      for (var time = date; time <= end; time += dayTime) {
-        data.push([
-          echarts.format.formatTime("yyyy-MM-dd", time),
-          Math.floor(Math.random() * 10000)
-        ]);
-      }
-      return data;
-    },
     getVirtulData(year) {
       const data = [];
 
@@ -74,7 +88,10 @@ export default {
             break;
         }
         if (item !== "_id") {
+          console.log(this.desserts[0]);
+          let num = 0;
           data[index - 1] = this.list[item].map((ele, idx) => {
+            num += ele;
             let idx1 = idx + 1;
             if (idx1 < 10) {
               idx = "0" + idx;
@@ -88,48 +105,35 @@ export default {
             }
             return ele;
           });
+          this.desserts[item] = num.toFixed(2);
         }
       }
 
-      // console.log(data)
-      // year = year || "2019";
-      // var date = +echarts.number.parseDate(year + "-01-01");
-      // var end = +echarts.number.parseDate(year + "-12-31");
-      // var dayTime = 3600 * 24 * 1000;
-      // var data = [];
-      // for (var time = date; time <= end; time += dayTime) {
-      //   data.push([
-      //     echarts.format.formatTime("yyyy-MM-dd", time),
-      //     Math.floor(Math.random() * 10000)
-      //   ]);
-      // }
-      // return data;
       return data.reduce((a, b) => [...a, ...b], []);
     },
 
     initEcharts() {
       const data = this.getVirtulData(2019);
-      console.log(data);
+
       const option = {
-        backgroundColor: "#404a59",
+        backgroundColor: "#a0a0a0",
 
         title: {
           top: 30,
-          text: "2019年工作工时统计",
-          subtext: "数据来源：JIRA",
+          text: "2019年工作时长统计",
+          subtext: "数据来源-JIRA",
           left: "center",
           textStyle: {
             color: "#fff"
           }
         },
         tooltip: {
-          trigger: "item",
-          extraCssText: "z-index:-1;"
+          trigger: "item"
         },
         legend: {
           top: "30",
           left: "100",
-          data: ["工时", "Top 12"],
+          data: ["工时"],
           textStyle: {
             color: "#fff"
           }
@@ -195,11 +199,11 @@ export default {
             coordinateSystem: "calendar",
             data: data,
             symbolSize: function(val) {
-              return val[1]
+              return val[1] / 3;
             },
             itemStyle: {
               normal: {
-                color: "#ddb926"
+                color: "#e8676b"
               }
             }
           },
@@ -210,69 +214,17 @@ export default {
             calendarIndex: 1,
             data: data,
             symbolSize: function(val) {
-              return val[1]
+              return val[1] / 3;
             },
             itemStyle: {
               normal: {
-                color: "#ddb926"
+                color: "#e8676b"
               }
             }
-          },
-          {
-            name: "Top 12",
-            type: "effectScatter",
-            coordinateSystem: "calendar",
-            calendarIndex: 1,
-            data: data
-              .sort(function(a, b) {
-                return b[1] - a[1];
-              })
-              .slice(0, 12),
-            symbolSize: function(val) {
-              return val[1];
-            },
-            showEffectOn: "render",
-            rippleEffect: {
-              brushType: "stroke"
-            },
-            hoverAnimation: true,
-            itemStyle: {
-              normal: {
-                color: "#f4e925",
-                shadowBlur: 10,
-                shadowColor: "#333"
-              }
-            },
-            zlevel: 1
-          },
-          {
-            name: "Top 12",
-            type: "effectScatter",
-            coordinateSystem: "calendar",
-            data: data
-              .sort(function(a, b) {
-                return b[1] - a[1];
-              })
-              .slice(0, 12),
-            symbolSize: function(val) {
-              return val[1];
-            },
-            showEffectOn: "render",
-            rippleEffect: {
-              brushType: "stroke"
-            },
-            hoverAnimation: true,
-            itemStyle: {
-              normal: {
-                color: "#f4e925",
-                shadowBlur: 10,
-                shadowColor: "#333"
-              }
-            },
-            zlevel: 1
           }
         ]
       };
+
       this.$nextTick(() => {
         echarts.init(this.$refs.echarts).setOption(option);
       });
@@ -280,11 +232,24 @@ export default {
   },
   created() {
     this.initEcharts();
+    console.log(this.desserts);
   }
 };
 </script>
 <style lang="stylus" scoped>
 .charts {
   height: 500px;
+}
+
+.Statistics-list {
+  display: flex;
+
+  .list {
+    flex: 1;
+
+    li {
+      list-style: none;
+    }
+  }
 }
 </style>
