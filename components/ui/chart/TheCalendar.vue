@@ -128,7 +128,8 @@ export default {
           }
         },
         tooltip: {
-          trigger: "item"
+          trigger: "item",
+          formatter: '{c0}工时'
         },
         legend: {
           top: "30",

@@ -135,9 +135,6 @@ export default {
         });
     },
     transiTo() {}
-  },
-  created() {
-    console.log(this.$store);
   }
 };
 </script>

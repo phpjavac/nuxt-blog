@@ -34,25 +34,6 @@
           | {{ page.text }}
 
       // Language buttons
-      //- v-toolbar-items
-      //-   v-menu(offset-y transition="slide-y-transition")
-      //-     v-btn(slot="activator" flat)
-      //-       v-icon(class="mr-1" small)
-      //-         | fas fa-globe
-            //- | {{ $t('menu.locale') }}
-
-          //- v-list
-          //-   v-list-tile(
-          //-     v-for="(locale, index) in locales"
-          //-     :key="index"
-          //-     nuxt
-          //-     exact
-              
-          //-   )
-          //-     v-list-tile-title.text-xs-center
-          //-       v-flex(tag="span" class="primary-text body-2")
-          //-         | {{ locale.name }}
-
       // Search button
       the-search-button
 
