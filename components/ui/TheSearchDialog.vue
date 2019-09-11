@@ -67,6 +67,7 @@
 <script>
 import axios from "axios";
 import ArticleList from "@/components/ui/article/List.vue";
+import debounce from "lodash/debounce";
 
 export default {
   components: {
@@ -83,41 +84,29 @@ export default {
       loading: false,
       keywords: "",
       searchResult: [],
-      timeout: null
+      timeout: null,
+      debounceSearch: null
     };
   },
   watch: {
-    show(){
-      if(!this.show&&this.SearchDialogState){
-        this.keywords = ""
-        this.searchResult = []
+    show() {
+      if (!this.show && this.SearchDialogState) {
+        this.keywords = "";
+        this.searchResult = [];
         this.$store.commit("showSearchDialogState");
       }
     },
     SearchDialogState() {
-      this.show = this.SearchDialogState
+      this.show = this.SearchDialogState;
     },
     keywords() {
-      this.debounce(this.textChange(this.keywords), 1000);
+      this.debounceSearch();
     }
   },
   methods: {
-    debounce(func, wait) {
-      return function() {
-        let context = this;
-        let args = arguments;
-
-        if (this.timeout) clearTimeout(this.timeout);
-
-        let callNow = !this.timeout;
-        this.timeout = setTimeout(() => {
-          this.timeout = null;
-        }, wait);
-
-        if (callNow) func.apply(context, args);
-      };
-    },
-    textChange(name) {
+    search() {
+      console.log(1);
+      const name = this.keywords;
       if (!name) {
         return (this.searchResult = []);
       }
@@ -135,6 +124,9 @@ export default {
         });
     },
     transiTo() {}
+  },
+  created() {
+    this.debounceSearch = debounce(this.search, 500);
   }
 };
 </script>

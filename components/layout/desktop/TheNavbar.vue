@@ -10,7 +10,7 @@
     //- // Logo
     v-toolbar-title.header-logo
       //- n-link(extra)
-      img(src="/logo.png" alt="Mr.Hiei")
+      img(src="/logo.png")
 
     v-spacer
 

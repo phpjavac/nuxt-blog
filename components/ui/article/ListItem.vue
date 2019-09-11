@@ -7,24 +7,25 @@
         // Datetime
         //- post-date-time(:datetime="article.created_at")
         // Title
-        v-flex(class="post-content-title" wrap,@click='next')
+        v-flex(class="post-content-title" wrap)
           n-link(
-          @click='next'
+          @click.native='next'
           :to="`/articles/${article._id}`"
             exact
           )
             | {{ article.title }}
-        v-flex(class="post-content-summary" wrap,@click='next')
+        v-flex(class="post-content-summary" wrap)
           n-link(
-          
+          @click.native='next'
           :to="`/articles/${article._id}`"
             exact
           )
             | {{ article.summary }}
     
         // Tags
-        v-flex(class="post-content-tag" wrap,@click='next')
+        v-flex(class="post-content-tag" wrap)
           n-link(
+            @click.native='next'
             v-for="(tag, index) in article.tag"
             :to="`/tags/${tag}`"
             :key="index"

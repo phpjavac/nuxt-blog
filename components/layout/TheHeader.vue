@@ -1,8 +1,22 @@
 <template lang="pug">
   header.header
     v-flex(class="header-present" pa-0 wrap)
+      the-nav-drawer(
+        v-if="$device.isMobile"
+        :didScroll="didScroll",
+        :pages="pages"
+      )
+
+      // Mobile navbar
+      the-navbar-mobile(
+        v-if="$device.isMobile"
+        :didScroll="didScroll"
+        :pages="pages"
+        :class="didScroll ? 'nav-sticky' : 'nav-transparent'"
+      )
       // Desktop navbar
       the-navbar-desktop(
+        v-else,
         :didScroll="didScroll"
         :pages="pages"
         :class="didScroll ? 'nav-sticky' : 'nav-transparent'"
@@ -92,6 +106,7 @@ $mb = 120px
       position relative !important
       padding 15px 0
       background-color transparent
+      z-index 1
       >>> .v-icon
         color #d7d7d7
     .nav-sticky

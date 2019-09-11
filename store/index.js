@@ -6,16 +6,19 @@ Vue.use(Vuex)
 const store = () => new Vuex.Store({
 
   state: {
-    SearchDialogState: false
+    SearchDialogState: false,
+    showNavDrawer: false
   },
   mutations: {
-    showSearchDialogState (state,boolean) {
-        if(!boolean){
-            state.SearchDialogState = !state.SearchDialogState
-        }else{
-            state.SearchDialogState = false
-        }
-        console.log(state.SearchDialogState,boolean)
+    showSearchDialogState(state, boolean) {
+      if (!boolean) {
+        state.SearchDialogState = !state.SearchDialogState
+      } else {
+        state.SearchDialogState = false
+      }
+    },
+    OPEN_NAV_DRAWER(state) {
+      state.showNavDrawer = !state.showNavDrawer
     }
   }
 })

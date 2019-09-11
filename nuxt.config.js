@@ -59,6 +59,7 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/vuetify',
+    '@nuxtjs/device',
     '@nuxtjs/proxy'
   ],
   /*
