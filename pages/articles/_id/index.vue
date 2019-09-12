@@ -4,7 +4,6 @@ div.flex.article-home.md6.xs11.wrap
     div(v-html="content").markdown-body
 </template>
 <script>
-import axios from "axios";
 export default {
   data() {
     return {
@@ -13,7 +12,7 @@ export default {
     };
   },
   async asyncData(route) {
-    let { data } = await axios.get("http://localhost:3003/api/article", {
+    let { data } = await route.app.$axios.get("/api/article", {
       params: {
         id: route.params.id
       }

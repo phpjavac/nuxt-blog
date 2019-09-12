@@ -65,7 +65,6 @@
         //       v-divider.mt-3.mr-1
 </template>
 <script>
-import axios from "axios";
 import ArticleList from "@/components/ui/article/List.vue";
 import debounce from "lodash/debounce";
 
@@ -111,8 +110,8 @@ export default {
         return (this.searchResult = []);
       }
       this.loading = true;
-      axios
-        .get("http://localhost:3003/api/article/list", {
+      this.$axios
+        .get("/api/article/list", {
           params: {
             title: name,
             pageSize: 200

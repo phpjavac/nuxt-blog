@@ -11,7 +11,6 @@ figure
 <script>
 // 引入 echarts 主模块。
 var echarts = require("echarts");
-import axios from "axios";
 export default {
   props: {
     list: {

@@ -13,7 +13,6 @@ v-flex(
 </template>
 
 <script>
-import axios from "axios";
 export default {
   components: {
     TheCalendar: () => import("@/components/ui/chart/TheCalendar.vue")
@@ -24,9 +23,9 @@ export default {
       state: 0
     };
   },
-  async asyncData() {
-    const { data } = await axios.get(
-      "http://localhost:3003/api/tool/getworkingHours"
+  async asyncData(con) {
+    const { data } = await con.app.$axios.get(
+      "/api/tool/getworkingHours"
     );
     return { list: data.data };
   }

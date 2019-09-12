@@ -37,10 +37,9 @@
       //- the-bar(:data="tags")
 </template>
 <script>
-import axios from 'axios'
 export default {
-    async asyncData () {
-    let { data } = await axios.get("http://localhost:3003/api/article/taglist")
+    async asyncData (con) {
+    let { data } = await con.app.$axios.get("/api/article/taglist")
     return { tagsList: data.list }
   },
   data() {

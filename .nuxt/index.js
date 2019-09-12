@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Meta from 'vue-meta'
+import ClientOnly from 'vue-client-only'
+import NoSsr from 'vue-no-ssr'
 import { createRouter } from './router.js'
-import NoSsr from './components/no-ssr.js'
 import NuxtChild from './components/nuxt-child.js'
 import NuxtError from '..\\layouts\\error.vue'
 import Nuxt from './components/nuxt.js'
@@ -11,14 +12,27 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_vuetify_5b067398 from 'nuxt_plugin_vuetify_5b067398' // Source: .\\vuetify.js (mode: 'all')
-import nuxt_plugin_libplugin3744b932_e2dbe014 from 'nuxt_plugin_libplugin3744b932_e2dbe014' // Source: .\\lib.plugin.3744b932.js (mode: 'all')
+import nuxt_plugin_vuetify_b5bff3c6 from 'nuxt_plugin_vuetify_b5bff3c6' // Source: .\\vuetify.js (mode: 'all')
+import nuxt_plugin_axios_307ac635 from 'nuxt_plugin_axios_307ac635' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_libplugin5a9dd85e_438180c4 from 'nuxt_plugin_libplugin5a9dd85e_438180c4' // Source: .\\lib.plugin.5a9dd85e.js (mode: 'all')
 import nuxt_plugin_totop_f98cf8fa from 'nuxt_plugin_totop_f98cf8fa' // Source: ..\\plugins\\totop (mode: 'all')
 import nuxt_plugin_vuetify_0e1f10d7 from 'nuxt_plugin_vuetify_0e1f10d7' // Source: ..\\plugins\\vuetify (mode: 'all')
+import nuxt_plugin_axios_fb9c9a02 from 'nuxt_plugin_axios_fb9c9a02' // Source: ..\\plugins\\axios (mode: 'all')
 import nuxt_plugin_vuemavoneditor_e5e1de58 from 'nuxt_plugin_vuemavoneditor_e5e1de58' // Source: ..\\plugins\\vue-mavon-editor (mode: 'all')
 
-// Component: <NoSsr>
-Vue.component(NoSsr.name, NoSsr)
+// Component: <ClientOnly>
+Vue.component(ClientOnly.name, ClientOnly)
+// TODO: Remove in Nuxt 3: <NoSsr>
+Vue.component(NoSsr.name, {
+  ...NoSsr,
+  render(h, ctx) {
+    if (process.client && !NoSsr._warned) {
+      NoSsr._warned = true
+      console.warn(`<no-ssr> has been deprecated and will be removed in Nuxt 3, please use <client-only> instead`)
+    }
+    return NoSsr.render(h, ctx)
+  }
+})
 
 // Component: <NuxtChild>
 Vue.component(NuxtChild.name, NuxtChild)
@@ -155,12 +169,16 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (typeof nuxt_plugin_vuetify_5b067398 === 'function') {
-    await nuxt_plugin_vuetify_5b067398(app.context, inject)
+  if (typeof nuxt_plugin_vuetify_b5bff3c6 === 'function') {
+    await nuxt_plugin_vuetify_b5bff3c6(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_libplugin3744b932_e2dbe014 === 'function') {
-    await nuxt_plugin_libplugin3744b932_e2dbe014(app.context, inject)
+  if (typeof nuxt_plugin_axios_307ac635 === 'function') {
+    await nuxt_plugin_axios_307ac635(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_libplugin5a9dd85e_438180c4 === 'function') {
+    await nuxt_plugin_libplugin5a9dd85e_438180c4(app.context, inject)
   }
 
   if (typeof nuxt_plugin_totop_f98cf8fa === 'function') {
@@ -169,6 +187,10 @@ async function createApp(ssrContext) {
 
   if (typeof nuxt_plugin_vuetify_0e1f10d7 === 'function') {
     await nuxt_plugin_vuetify_0e1f10d7(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_axios_fb9c9a02 === 'function') {
+    await nuxt_plugin_axios_fb9c9a02(app.context, inject)
   }
 
   if (typeof nuxt_plugin_vuemavoneditor_e5e1de58 === 'function') {

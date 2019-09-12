@@ -76,7 +76,6 @@
 <script>
 import ArticleList from "@/components/ui/article/List.vue";
 import dayjs, { Dayjs } from "dayjs";
-import axios from "axios";
 export default {
   components: {
     "article-list": ArticleList
@@ -94,8 +93,8 @@ export default {
             title: "yiziluoying"
         }
     },
-  async asyncData() {
-    let { data } = await axios.get("http://localhost:3003/api/article/list", {
+  async asyncData(con) {
+    let { data } = await con.app.$axios.get("/api/article/list", {
       params: { page: 1, pageSize: 10 }
     });
     return { articles: data.data.list,totalCount:data };

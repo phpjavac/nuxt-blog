@@ -29,7 +29,6 @@ v-layout(wrap).tag-list
 <script>
 import ArticleList from "@/components/ui/article/List.vue";
 
-import axios from "axios";
 export default {
   components: {
     "article-list": ArticleList
@@ -41,8 +40,8 @@ export default {
     };
   },
   async asyncData(con) {
-    let { data } = await axios.get(
-      "http://localhost:3003/api/article/list/tag",
+    let { data } = await con.app.$axios.get(
+      "/api/article/list/tag",
       {
         params: {
           tag: con.params.tag

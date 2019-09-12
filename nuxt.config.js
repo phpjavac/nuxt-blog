@@ -44,12 +44,10 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  proxy: [
-    ['/api', { target: 'http://localhost:3003' }]
-  ],
   plugins: [
     { src: '~plugins/totop', ssr: true },
     { src: '~plugins/vuetify', ssr: true },
+    { src: '~plugins/axios', ssr: true },
     { src: '@/plugins/vue-mavon-editor', srr: false }
 
 
@@ -60,6 +58,7 @@ module.exports = {
   modules: [
     '@nuxtjs/vuetify',
     '@nuxtjs/device',
+    '@nuxtjs/axios',
     '@nuxtjs/proxy'
   ],
   /*
@@ -72,6 +71,12 @@ module.exports = {
       secondary: '#D7D7D7',
       accent: '#E8676B',
     }
+  },
+  /**
+   * axuis config
+   */
+  axios:{
+    baseURL:"http://api.aiisx.com"
   },
   /*
   ** Build configuration
