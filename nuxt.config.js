@@ -80,7 +80,7 @@ module.exports = {
    * axuis config
    */
   axios: {
-    baseURL: "http://api.aiisx.com"
+    baseURL: "https://api.aiisx.com"
   },
   /*
   ** Build configuration
