@@ -87,7 +87,6 @@ export default {
             break;
         }
         if (item !== "_id") {
-          console.log(this.desserts[0]);
           let num = 0;
           data[index - 1] = this.list[item].map((ele, idx) => {
             num += ele;

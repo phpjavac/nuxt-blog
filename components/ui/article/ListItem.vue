@@ -42,7 +42,6 @@ export default {
   },
   methods: {
     next(){
-      console.log(88)
       this.$store.commit("showSearchDialogState",true);
     },
     getDate(date) {

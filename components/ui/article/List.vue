@@ -64,7 +64,6 @@ export default {
   methods: {
     updata() {
       this.articles = this.initData.map(item => {
-        console.log(item);
         // item.tag = item.tag.map(item1 => {
         //   return {
         //     name: item1,

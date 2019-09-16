@@ -104,7 +104,6 @@ export default {
   },
   methods: {
     search() {
-      console.log(1);
       const name = this.keywords;
       if (!name) {
         return (this.searchResult = []);

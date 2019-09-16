@@ -11,8 +11,11 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: "width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" },
-      
+
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+    ],
+    script: [
+      { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async:true}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -47,6 +50,7 @@ module.exports = {
   plugins: [
     { src: '~plugins/totop', ssr: true },
     { src: '~plugins/vuetify', ssr: true },
+    { src: '~plugins/ads.js', ssr: false },
     { src: '~plugins/axios', ssr: true },
     { src: '@/plugins/vue-mavon-editor', srr: false }
 
@@ -75,8 +79,8 @@ module.exports = {
   /**
    * axuis config
    */
-  axios:{
-    baseURL:"http://api.aiisx.com"
+  axios: {
+    baseURL: "http://api.aiisx.com"
   },
   /*
   ** Build configuration
