@@ -1,4 +1,5 @@
 const colors = require('vuetify/es5/util/colors').default
+const absbygoogle = "(adsbygoogle = window.adsbygoogle || []).push({google_ad_client:'ca-pub-3126519013117675',enable_page_level_ads: true});";
 
 module.exports = {
   mode: 'universal',
@@ -17,7 +18,7 @@ module.exports = {
     script: [
       { src: 'https://hm.baidu.com/hm.js?4cbc2e5d4c40d80a9c5a09f5f6346feb' },
       { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: true, ssr: false },
-      { innerHTML: "(adsbygoogle = window.adsbygoogle || []).push({google_ad_client:'ca-pub-3126519013117675',enable_page_level_ads: true})", type: 'text/javascript', charset: 'utf-8', },
+      { innerHTML: absbygoogle, type: 'text/javascript', charset: 'utf-8', },
     ],
     __dangerouslyDisableSanitizers: ['script'],
     link: [
