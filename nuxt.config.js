@@ -15,7 +15,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     script: [
-      { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async:true}
+      { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async:true},
+      { src: 'https://hm.baidu.com/hm.js?4cbc2e5d4c40d80a9c5a09f5f6346feb'}
+      
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
