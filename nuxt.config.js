@@ -15,10 +15,11 @@ module.exports = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     script: [
-      { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async:true},
-      { src: 'https://hm.baidu.com/hm.js?4cbc2e5d4c40d80a9c5a09f5f6346feb'}
-      
+      { src: 'https://hm.baidu.com/hm.js?4cbc2e5d4c40d80a9c5a09f5f6346feb' },
+      { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: true, ssr: false },
+      { innerHTML: "(adsbygoogle = window.adsbygoogle || []).push({google_ad_client:'ca-pub-3126519013117675',enable_page_level_ads: true})", type: 'text/javascript', charset: 'utf-8', },
     ],
+    __dangerouslyDisableSanitizers: ['script'],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ,
@@ -52,7 +53,7 @@ module.exports = {
   plugins: [
     { src: '~plugins/totop', ssr: true },
     { src: '~plugins/vuetify', ssr: true },
-    { src: '~plugins/ads.js', ssr: false },
+    // { src: '~plugins/ads.js', ssr: false },
     { src: '~plugins/Statistics.js', ssr: false },
     { src: '~plugins/axios', ssr: true },
     { src: '@/plugins/vue-mavon-editor', srr: false }
