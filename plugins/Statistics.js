@@ -1,7 +1,11 @@
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?4cbc2e5d4c40d80a9c5a09f5f6346feb";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+export default ({app: {router}, store}) => {
+    /* 每次路由变更时进行pv统计 */
+    router.afterEach((to, from) => {
+      /* 告诉增加一个PV */
+      try {
+        window._hmt = window._hmt || []
+        window._hmt.push(['_trackPageview', to.fullPath])
+      } catch (e) {
+      }
+    })
+  }
