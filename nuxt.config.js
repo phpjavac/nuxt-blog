@@ -51,6 +51,7 @@ module.exports = {
     { src: '~plugins/totop', ssr: true },
     { src: '~plugins/vuetify', ssr: true },
     { src: '~plugins/ads.js', ssr: false },
+    { src: '~plugins/Statistics.js', ssr: false },
     { src: '~plugins/axios', ssr: true },
     { src: '@/plugins/vue-mavon-editor', srr: false }
 
