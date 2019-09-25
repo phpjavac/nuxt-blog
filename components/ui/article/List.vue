@@ -8,7 +8,12 @@
       md12
       wrap
     )
-        article-list-item(:article="article")
+        article-list-item(:article="article",v-if="article._id")
+        ins(v-else,class="adsbygoogle",style="display:block"
+            data-ad-client="ca-pub-3126519013117675"
+            data-ad-slot="2262849458"
+            data-ad-format="auto"
+            data-full-width-responsive="true")
     // Actions
     v-flex(
       v-show="isHaveMore"
@@ -72,6 +77,8 @@ export default {
         // });
         return item;
       });
+      this.articles.splice(3,0,{})
+      console.log(this.articles)
     },
     fetchNext(){
 

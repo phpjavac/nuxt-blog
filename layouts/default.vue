@@ -3,7 +3,6 @@ v-app
   // Header
   the-header(:didScroll="didScroll")
   TheSearchDialog
-  amp-auto-ads(type="adsense",data-ad-client="ca-pub-3126519013117675")
   v-content
     nuxt
     // Footer
