@@ -71,7 +71,8 @@
             | 最新文章
 
         article-list(:init-data="articles",:init-count="totalCount")
-        vueToTop(:bottom="50")
+        no-ssr
+          vueToTop(:bottom="50")
 </template>
 <script>
 import ArticleList from "@/components/ui/article/List.vue";
