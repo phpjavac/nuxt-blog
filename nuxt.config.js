@@ -17,6 +17,7 @@ module.exports = {
     ],
     script: [
       { src: 'https://hm.baidu.com/hm.js?4cbc2e5d4c40d80a9c5a09f5f6346feb' },
+      { src:"https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js",async: true,'custom-element':"amp-auto-ads"},
       { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', async: true, ssr: false },
       { innerHTML: absbygoogle, type: 'text/javascript', charset: 'utf-8', },
     ],
