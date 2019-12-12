@@ -36,19 +36,41 @@ export default {
   data() {
     return {
       articles: [],
-      totalCount: {}
+      totalCount: {},
+      titleList: ""
+    };
+  },
+  head() {
+    return {
+      title: this.$route.params.tag,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.titleList
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.$route.params.tag
+        }
+      ]
     };
   },
   async asyncData(con) {
-    let { data } = await con.app.$axios.get(
-      "/api/article/list/tag",
-      {
-        params: {
-          tag: con.params.tag
-        }
+    let { data } = await con.app.$axios.get("/api/article/list/tag", {
+      params: {
+        tag: con.params.tag
       }
-    );
-    return { articles: data.data.list };
+    });
+    return {
+      articles: data.data.list,
+      titleList: data.data.list
+        .map(item => {
+          return item.title;
+        })
+        .join()
+    };
   },
   created() {}
 };

@@ -38,71 +38,55 @@
 </template>
 <script>
 export default {
-    async asyncData (con) {
-    let { data } = await con.app.$axios.get("/api/article/taglist")
-    return { tagsList: data.list }
+  async asyncData(con) {
+    let { data } = await con.app.$axios.get("/api/article/taglist");
+    return { tagsList: data.list };
   },
   data() {
     return {
       tagsList: []
+    };
+  },
+  head() {
+    return {
+      title: "文章标签"
     };
   }
 };
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-.section-item {
-  margin: 48px auto 24px auto;
-
+.section-item
+  margin 48px auto 24px auto
   // Tag card
-  .tag-card {
-    padding: 30px;
-    margin-bottom: 60px;
-
-    +screen-width-less-than(sm) {
-      padding: 30px 12px;
-    }
-
-    &-title {
-      font-size: 24px;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 8px;
-
-      .v-icon {
-        color: var(--v-primary-base);
-        margin: 0 8px 4px 0;
-      }
-    }
-
-    &-content {
-      text-align: center;
-      padding: 8px 30px;
-
-      +screen-width-less-than(sm) {
-        padding: 12px 0;
-      }
-
-      .tag-label {
-        font-size: 1rem;
-        margin: 10px;
-        transition: all 0.3s;
-
-        &:hover {
-          color: #FFF !important;
-          background: #e8676b !important;
-        }
-
-        >>> .v-chip__content {
-          cursor: pointer;
-        }
-      }
-
-      .v-badge >>> .v-badge__badge {
-        top: 2px;
-        right: 2px;
-      }
-    }
-  }
-}
+  .tag-card
+    padding 30px
+    margin-bottom 60px
+    +screen-width-less-than(sm)
+      padding 30px 12px
+    &-title
+      font-size 24px
+      font-weight 700
+      text-align center
+      margin-bottom 8px
+      .v-icon
+        color var(--v-primary-base)
+        margin 0 8px 4px 0
+    &-content
+      text-align center
+      padding 8px 30px
+      +screen-width-less-than(sm)
+        padding 12px 0
+      .tag-label
+        font-size 1rem
+        margin 10px
+        transition all 0.3s
+        &:hover
+          color #FFF !important
+          background #e8676b !important
+        >>> .v-chip__content
+          cursor pointer
+      .v-badge >>> .v-badge__badge
+        top 2px
+        right 2px
 </style>

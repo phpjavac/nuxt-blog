@@ -5,6 +5,7 @@
         | {{ `&copy;&nbsp;${year}&nbsp;` }}
         a(href="https://aiisx.com/" target="_blank")
           | AIisx
+        a(href="http://www.beian.gov.cn/" target="_blank")  宁ICP备16000711号-1
 </template>
 
 <script>

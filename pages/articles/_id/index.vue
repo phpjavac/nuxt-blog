@@ -8,7 +8,25 @@ export default {
   data() {
     return {
       content: {},
-      title: ""
+      title: "",
+      tag: ""
+    };
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.title
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.tag
+        }
+      ]
     };
   },
   async asyncData(route) {
@@ -17,54 +35,43 @@ export default {
         id: route.params.id
       }
     });
-    return { content: data.data.content, title: data.data.title };
+    return {
+      content: data.data.content,
+      title: data.data.title,
+      tag: data.data.tag.join()
+    };
   },
-  created() {
-    
-  },
+  created() {}
 };
 </script>
 <style lang="stylus">
-.article-home {
-  margin: 0 auto 40px auto;
-
-  .title {
-    font-size: 34px !important;
-    margin-bottom: 120px;
-    color: #fff;
-    border-bottom: 2px solid #fff0;
+.article-home
+  margin 0 auto 40px auto
+  .title
+    font-size 34px !important
+    margin-bottom 120px
+    color #fff
+    border-bottom 2px solid #fff0
     padding-bottom 3px
-    &:after {
-      content: '';
-      display: block;
-      height: 3px;
-      width: 0;
-      background: transparent;
-      transition: width 0.5s ease, background-color 0.5s ease;
-    }
-
-    &:hover:after {
-      width: 100%;
-      background: #fff;
-    }
-  }
-
-  code {
-    box-shadow: none;
-  }
-}
-
-.markdown-body {
-  box-sizing: border-box;
-  min-width: 200px;
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 45px;
-}
-
-@media (max-width: 767px) {
-  .markdown-body {
-    padding: 15px;
-  }
-}
+    &:after
+      content ''
+      display block
+      height 3px
+      width 0
+      background transparent
+      transition width 0.5s ease, background-color 0.5s ease
+    &:hover:after
+      width 100%
+      background #fff
+  code
+    box-shadow none
+.markdown-body
+  box-sizing border-box
+  min-width 200px
+  max-width 980px
+  margin 0 auto
+  padding 45px
+@media (max-width: 767px)
+  .markdown-body
+    padding 15px
 </style>

@@ -91,7 +91,7 @@ export default {
   },
     head () {
         return {
-            title: "yiziluoying"
+            title: "首页"
         }
     },
   async asyncData(con) {
@@ -108,7 +108,7 @@ export default {
         return {
           word: "Spring",
           locale: "春",
-          poem: "《春夜喜雨》- 好雨知時節，當春乃発生。"
+          poem: "《寄黄几复》- 桃李春风一杯酒，江湖夜雨十年灯。"
         };
       }
 
@@ -117,7 +117,7 @@ export default {
         return {
           word: "Summer",
           locale: "夏",
-          poem: "《小池》- 小荷才露尖尖角，早有蜻蜓立上頭。"
+          poem: "《夏意》- 树阴满地日当午，梦觉流莺时一声。"
         };
       }
 
@@ -126,7 +126,7 @@ export default {
         return {
           word: "Autumn",
           locale: "秋",
-          poem: "《水調歌頭》- 但願人長久，千里共嬋娟。"
+          poem: "《水调歌头》- 但愿人长久，千里共婵娟。"
         };
       }
 
@@ -134,7 +134,7 @@ export default {
       return {
         word: "Winter",
         locale: "冬",
-        poem: "《江雪》- 孤舟蓑笠翁，独釣寒江雪。"
+        poem: "《白头吟》- 皑如山上雪，皎若云间月。"
       };
     }
   }

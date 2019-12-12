@@ -78,7 +78,6 @@ export default {
         return item;
       });
       this.articles.splice(3,0,{})
-      console.log(this.articles)
     },
     fetchNext(){
 

@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Meta from 'vue-meta'
-import ClientOnly from 'vue-client-only'
-import NoSsr from 'vue-no-ssr'
 import { createRouter } from './router.js'
+import NoSsr from './components/no-ssr.js'
 import NuxtChild from './components/nuxt-child.js'
 import NuxtError from '..\\layouts\\error.vue'
 import Nuxt from './components/nuxt.js'
@@ -12,28 +11,17 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
-import nuxt_plugin_vuetify_b5bff3c6 from 'nuxt_plugin_vuetify_b5bff3c6' // Source: .\\vuetify.js (mode: 'all')
-import nuxt_plugin_axios_307ac635 from 'nuxt_plugin_axios_307ac635' // Source: .\\axios.js (mode: 'all')
-import nuxt_plugin_libplugin5a9dd85e_438180c4 from 'nuxt_plugin_libplugin5a9dd85e_438180c4' // Source: .\\lib.plugin.5a9dd85e.js (mode: 'all')
+import nuxt_plugin_vuetify_2d6b4d42 from 'nuxt_plugin_vuetify_2d6b4d42' // Source: .\\vuetify.js (mode: 'all')
+import nuxt_plugin_axios_8375fc12 from 'nuxt_plugin_axios_8375fc12' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_libplugin448628de_15636996 from 'nuxt_plugin_libplugin448628de_15636996' // Source: .\\lib.plugin.448628de.js (mode: 'all')
 import nuxt_plugin_totop_f98cf8fa from 'nuxt_plugin_totop_f98cf8fa' // Source: ..\\plugins\\totop (mode: 'all')
 import nuxt_plugin_vuetify_0e1f10d7 from 'nuxt_plugin_vuetify_0e1f10d7' // Source: ..\\plugins\\vuetify (mode: 'all')
 import nuxt_plugin_Statistics_e8f4e146 from 'nuxt_plugin_Statistics_e8f4e146' // Source: ..\\plugins\\Statistics.js (mode: 'client')
 import nuxt_plugin_axios_fb9c9a02 from 'nuxt_plugin_axios_fb9c9a02' // Source: ..\\plugins\\axios (mode: 'all')
 import nuxt_plugin_vuemavoneditor_e5e1de58 from 'nuxt_plugin_vuemavoneditor_e5e1de58' // Source: ..\\plugins\\vue-mavon-editor (mode: 'all')
 
-// Component: <ClientOnly>
-Vue.component(ClientOnly.name, ClientOnly)
-// TODO: Remove in Nuxt 3: <NoSsr>
-Vue.component(NoSsr.name, {
-  ...NoSsr,
-  render(h, ctx) {
-    if (process.client && !NoSsr._warned) {
-      NoSsr._warned = true
-      console.warn(`<no-ssr> has been deprecated and will be removed in Nuxt 3, please use <client-only> instead`)
-    }
-    return NoSsr.render(h, ctx)
-  }
-})
+// Component: <NoSsr>
+Vue.component(NoSsr.name, NoSsr)
 
 // Component: <NuxtChild>
 Vue.component(NuxtChild.name, NuxtChild)
@@ -170,16 +158,16 @@ async function createApp(ssrContext) {
 
   // Plugin execution
 
-  if (typeof nuxt_plugin_vuetify_b5bff3c6 === 'function') {
-    await nuxt_plugin_vuetify_b5bff3c6(app.context, inject)
+  if (typeof nuxt_plugin_vuetify_2d6b4d42 === 'function') {
+    await nuxt_plugin_vuetify_2d6b4d42(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_axios_307ac635 === 'function') {
-    await nuxt_plugin_axios_307ac635(app.context, inject)
+  if (typeof nuxt_plugin_axios_8375fc12 === 'function') {
+    await nuxt_plugin_axios_8375fc12(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_libplugin5a9dd85e_438180c4 === 'function') {
-    await nuxt_plugin_libplugin5a9dd85e_438180c4(app.context, inject)
+  if (typeof nuxt_plugin_libplugin448628de_15636996 === 'function') {
+    await nuxt_plugin_libplugin448628de_15636996(app.context, inject)
   }
 
   if (typeof nuxt_plugin_totop_f98cf8fa === 'function') {

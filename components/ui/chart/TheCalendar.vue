@@ -44,7 +44,6 @@ export default {
       const data = [];
 
       for (let item of Object.keys(this.list)) {
-        // console.log(this.list[item])
         let index = 0;
         switch (item) {
           case "January":
@@ -231,7 +230,6 @@ export default {
   },
   created() {
     this.initEcharts();
-    console.log(this.desserts);
   }
 };
 </script>

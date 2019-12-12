@@ -5,10 +5,6 @@ class Api {
     baseURL: 'http://localhost:3039',
   });
   axios = axios.interceptors.response
-  catch() {
-    console.log(this);
-  }
-
   /** 登录接口 */
   login(data) {
     return this.$http.post('./api/user/login', data);
