@@ -74,10 +74,14 @@ export default {
           path: "/tags",
           icon: "fas fa-tags",
           text: "文章标签"
+        },{
+          path: "/apps",
+          icon: "fas fa-archive",
+          text: "APPS"
         },
         {
           path: "/archives",
-          icon: "fas fa-archive",
+          icon: "fas fa-lock",
           text: "归档"
         },
         {
